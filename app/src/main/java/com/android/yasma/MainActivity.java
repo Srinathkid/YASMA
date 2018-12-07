@@ -1,8 +1,10 @@
 package com.android.yasma;
 
 import android.app.ProgressDialog;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 
 import com.android.yasma.Model.PostsModel;
 import com.android.yasma.Utils.RestClient;
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         getPosts();
     }
 
@@ -44,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (progressDialog.isShowing())
                     progressDialog.dismiss();
-              
+
 
             }
 
@@ -54,12 +58,16 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-           /* @Override
-            public void onFailure(Call<JsonObject> call, Throwable t) {
-                System.out.println("API Response Error : " + t.getMessage());
-            }*/
+
         });
 
 
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        setTitle("");
     }
 }
