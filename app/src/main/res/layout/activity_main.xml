@@ -47,18 +47,18 @@
             android:background="#ffffff"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <android.support.v4.widget.SwipeRefreshLayout
+           <!-- <android.support.v4.widget.SwipeRefreshLayout
                 android:id="@+id/swipeLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent">-->
 
                 <android.support.v7.widget.RecyclerView
-                    android:id="@+id/products_recycler"
+                    android:id="@+id/posts_recycler"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scrollbars="none" />
 
-            </android.support.v4.widget.SwipeRefreshLayout>
+            <!--</android.support.v4.widget.SwipeRefreshLayout>-->
 
             <TextView
                 android:id="@+id/noitems"

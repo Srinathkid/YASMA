@@ -4,8 +4,10 @@ import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
+import com.android.yasma.Adapter.PostsAdapter;
 import com.android.yasma.Model.PostsModel;
 import com.android.yasma.Utils.RestClient;
 import com.google.gson.Gson;
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     PostsModel postsModel;
     List<PostsModel> postsModelArrayList;
+    PostsAdapter postsAdapter;
+    RecyclerView posts_lists;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +36,17 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        setResources();
         getPosts();
+
+        postsAdapter = new PostsAdapter(this, postsModelArrayList);
+        posts_lists.setAdapter(postsAdapter);
+    }
+
+    private void setResources() {
+        posts_lists = (RecyclerView) findViewById(R.id.posts_recycler);
+
     }
 
     private void getPosts() {
@@ -45,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<List<PostsModel>> call, Response<List<PostsModel>> response) {
                 postsModelArrayList = response.body();
 
-
+                postsAdapter.notifyDataSetChanged();
                 if (progressDialog.isShowing())
                     progressDialog.dismiss();
 
