@@ -54,19 +54,31 @@
             app:layout_constraintTop_toBottomOf="@+id/username" />
 
         <TextView
+            android:id="@+id/posttitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Posts Title"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="@+id/profilepic"
+            app:layout_constraintRight_toRightOf="@+id/datetime"
+            app:layout_constraintTop_toBottomOf="@+id/profilepic" />
+        <TextView
             android:id="@+id/postmsg"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Many beef-exportiguidelineE​nroll jjjjjjjjmnnmnmnmnmund themselves in the middle of a series of trade bans."
+            android:text="Posts Message"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintLeft_toLeftOf="@+id/profilepic"
             app:layout_constraintRight_toRightOf="@+id/datetime"
-            app:layout_constraintTop_toBottomOf="@+id/profilepic" />
+            app:layout_constraintTop_toBottomOf="@+id/posttitle" />
 
 
-        <com.singleevent.sdk.Gallery_Camera.AttachMent.Attachment
+        <ImageView
             android:id="@+id/postimage"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -182,7 +194,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:gravity="center_vertical"
-                    android:text="21 Comments"
+                    android:text="Comments"
                     android:textColor="@color/blue_grey_600"
                     android:textSize="14sp" />
 

@@ -1,6 +1,7 @@
 package com.android.yasma.Utils;
 
 import com.android.yasma.Model.PostsModel;
+import com.android.yasma.Model.UsersDetails;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
@@ -20,5 +21,6 @@ public interface APIInterface {
     @GET("posts/{post_id}/comments")
     Call<JsonObject> getComments();
 
-
+    @GET("users")
+    Call<List<UsersDetails>> getUsers();
 }
