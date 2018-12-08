@@ -1,6 +1,9 @@
 package com.android.yasma.Model;
 
-public class Address {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Address implements Parcelable{
 
 
     private String street;
@@ -12,6 +15,25 @@ public class Address {
     private String zipcode;
 
     private Geo geo;
+
+    protected Address(Parcel in) {
+        street = in.readString();
+        suite = in.readString();
+        city = in.readString();
+        zipcode = in.readString();
+    }
+
+    public static final Creator<Address> CREATOR = new Creator<Address>() {
+        @Override
+        public Address createFromParcel(Parcel in) {
+            return new Address(in);
+        }
+
+        @Override
+        public Address[] newArray(int size) {
+            return new Address[size];
+        }
+    };
 
     public String getStreet() {
         return street;
@@ -53,4 +75,16 @@ public class Address {
         this.geo = geo;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(street);
+        dest.writeString(suite);
+        dest.writeString(city);
+        dest.writeString(zipcode);
+    }
 }

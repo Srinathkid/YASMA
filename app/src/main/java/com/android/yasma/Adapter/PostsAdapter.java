@@ -1,11 +1,13 @@
 package com.android.yasma.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
 
+import com.android.yasma.Activities.PostsDetails;
 import com.android.yasma.Model.PostsModel;
 import com.android.yasma.Model.UsersDetails;
 import com.android.yasma.R;
@@ -46,7 +49,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull final PostsAdapter.ViewHolder viewHolder, int i) {
-        PostsModel postsModel = postsLists.get(i);
+        final PostsModel postsModel = postsLists.get(i);
         UsersDetails usersDetails = null;
         for (UsersDetails ud : usersDetailsList) {
             if (ud.getId() == postsModel.getUserId()) {
@@ -65,6 +68,18 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         viewHolder.poststitle.setText(postsModel.getTitle());
 
 
+        final UsersDetails finalUsersDetails = usersDetails;
+        viewHolder.card_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pd_inten = new Intent(context, PostsDetails.class);
+                pd_inten.putExtra(PostsDetails.POSTS_DETAILS, postsModel);
+                pd_inten.putExtra(PostsDetails.USER_DETAILS, finalUsersDetails);
+                context.startActivity(pd_inten);
+            }
+        });
+
+
     }
 
     @Override
@@ -79,6 +94,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         TextSwitcher likes;
         LinearLayout likeview, commentview;
         ImageView profilepic, like;
+        CardView card_layout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -93,6 +109,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             like = (ImageView) itemView.findViewById(R.id.likes);
             likeview = (LinearLayout) itemView.findViewById(R.id.likeview);
             commentview = (LinearLayout) itemView.findViewById(R.id.commentview);
+            card_layout = (CardView) itemView.findViewById(R.id.posts_card_layout);
         }
     }
 }

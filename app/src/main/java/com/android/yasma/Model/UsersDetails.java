@@ -1,6 +1,9 @@
 package com.android.yasma.Model;
 
-public class UsersDetails {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class UsersDetails implements Parcelable {
 
     private Integer id;
 
@@ -17,6 +20,33 @@ public class UsersDetails {
     private String website;
 
     private Company company;
+
+    protected UsersDetails(Parcel in) {
+        if (in.readByte() == 0) {
+            id = null;
+        } else {
+            id = in.readInt();
+        }
+        name = in.readString();
+        username = in.readString();
+        email = in.readString();
+        address = in.readParcelable(Address.class.getClassLoader());
+        phone = in.readString();
+        website = in.readString();
+        company = in.readParcelable(Company.class.getClassLoader());
+    }
+
+    public static final Creator<UsersDetails> CREATOR = new Creator<UsersDetails>() {
+        @Override
+        public UsersDetails createFromParcel(Parcel in) {
+            return new UsersDetails(in);
+        }
+
+        @Override
+        public UsersDetails[] newArray(int size) {
+            return new UsersDetails[size];
+        }
+    };
 
     public Integer getId() {
         return id;
@@ -80,5 +110,27 @@ public class UsersDetails {
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        if (id == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(id);
+        }
+        dest.writeString(name);
+        dest.writeString(username);
+        dest.writeString(email);
+        dest.writeParcelable(address, flags);
+        dest.writeString(phone);
+        dest.writeString(website);
+        dest.writeParcelable(company, flags);
     }
 }

@@ -1,6 +1,9 @@
 package com.android.yasma.Model;
 
-public class Company {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Company implements Parcelable{
 
 
     private String name;
@@ -8,6 +11,24 @@ public class Company {
     private String catchPhrase;
     
     private String bs;
+
+    protected Company(Parcel in) {
+        name = in.readString();
+        catchPhrase = in.readString();
+        bs = in.readString();
+    }
+
+    public static final Creator<Company> CREATOR = new Creator<Company>() {
+        @Override
+        public Company createFromParcel(Parcel in) {
+            return new Company(in);
+        }
+
+        @Override
+        public Company[] newArray(int size) {
+            return new Company[size];
+        }
+    };
 
     public String getName() {
         return name;
@@ -33,4 +54,15 @@ public class Company {
         this.bs = bs;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(catchPhrase);
+        dest.writeString(bs);
+    }
 }

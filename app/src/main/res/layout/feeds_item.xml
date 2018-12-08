@@ -7,6 +7,7 @@
     android:layout_margin="5dp"
     app:cardCornerRadius="0dp"
     app:cardElevation="2dp"
+    android:id="@+id/posts_card_layout"
     app:cardUseCompatPadding="true">
 
     <android.support.constraint.ConstraintLayout
@@ -34,7 +35,7 @@
             android:layout_marginRight="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="1dp"
-            android:text="John Mexian"
+            android:text="Srinath Selvaraj"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintLeft_toRightOf="@+id/profilepic"
@@ -45,7 +46,7 @@
             android:id="@+id/datetime"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="22 Feb 12:40 PM"
+            android:text="08 Dec 10:00 PM"
             android:textColor="@color/blue_grey_500"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/profilepic"
@@ -129,17 +130,6 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/postimage" />
 
-                <!--<TextView-->
-                <!--android:id="@+id/likescount"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginLeft="8dp"-->
-                <!--android:layout_marginStart="8dp"-->
-                <!--android:layout_marginTop="8dp"-->
-                <!--android:gravity="center_vertical"-->
-                <!--android:text="125 likes"-->
-                <!--android:textColor="@color/md_blue_grey_600"-->
-                <!--android:textSize="14sp" />-->
 
 
                 <TextSwitcher
@@ -204,22 +194,7 @@
         </LinearLayout>
 
 
-        <!--<TextView-->
-        <!--android:id="@+id/comment"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginLeft="16dp"-->
-        <!--android:layout_marginStart="16dp"-->
-        <!--android:layout_marginTop="8dp"-->
-        <!--android:drawableLeft="@drawable/ic_comment"-->
-        <!--android:drawablePadding="10dp"-->
-        <!--android:gravity="center_vertical"-->
-        <!--android:text="21 Comments"-->
-        <!--android:textColor="@color/md_blue_grey_600"-->
-        <!--android:textSize="14sp"-->
-        <!--app:layout_constraintBaseline_toBaselineOf="@+id/likescount"-->
-        <!--app:layout_constraintLeft_toRightOf="@+id/verticalguideline"-->
-        <!--app:layout_constraintRight_toRightOf="parent" />-->
+
 
 
     </android.support.constraint.ConstraintLayout>
