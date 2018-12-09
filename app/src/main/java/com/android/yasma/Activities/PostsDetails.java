@@ -2,6 +2,7 @@ package com.android.yasma.Activities;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.support.constraint.ConstraintLayout;
@@ -159,6 +160,15 @@ public class PostsDetails extends AppCompatActivity {
         like = (ImageView) findViewById(R.id.pd_likes);
         likeview = (LinearLayout) findViewById(R.id.pd_likeview);
         commentlistlayout = (LinearLayout) findViewById(R.id.commentlistlayout);
+
+        username.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ud_intent = new Intent(PostsDetails.this, UserDetails.class);
+                ud_intent.putExtra(UserDetails.USER_DETAILS, usersDetails);
+                startActivity(ud_intent);
+            }
+        });
 
     }
 
