@@ -7,22 +7,32 @@
     android:paddingBottom="10dp">
 
 
+    <ImageView
+        android:id="@+id/cm_profilepic"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/default_user"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-
-        <ImageView
-            android:id="@+id/cm_profilepic"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:src="@drawable/default_user"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/comments_backgorund"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:padding="10dp"
+        app:layout_constraintLeft_toRightOf="@+id/cm_profilepic"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cm_profilepic">
 
         <TextView
             android:id="@+id/cm_username"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginLeft="16dp"
@@ -31,31 +41,32 @@
             android:layout_marginTop="1dp"
             android:text="Srinath"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintLeft_toRightOf="@+id/cm_profilepic"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/cm_profilepic" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/cm_datetime"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="1dp"
             android:text="08 Dec 10:00 PM"
             android:textColor="@color/blue_grey_500"
-            android:textSize="14sp"
-            app:layout_constraintLeft_toLeftOf="@+id/cm_username"
-            app:layout_constraintRight_toRightOf="@+id/cm_username"
-            app:layout_constraintTop_toBottomOf="@+id/cm_username" />
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/cm_postmsg"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="Comments Details"
             android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintLeft_toLeftOf="@+id/cm_profilepic"
-            app:layout_constraintRight_toRightOf="@+id/cm_datetime"
-            app:layout_constraintTop_toBottomOf="@+id/cm_datetime" />
+            android:textSize="12sp" />
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>
