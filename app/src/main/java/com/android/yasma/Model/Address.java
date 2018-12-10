@@ -21,6 +21,8 @@ public class Address implements Parcelable{
         suite = in.readString();
         city = in.readString();
         zipcode = in.readString();
+        geo = in.readParcelable(Geo.class.getClassLoader());
+
     }
 
     public static final Creator<Address> CREATOR = new Creator<Address>() {
@@ -86,5 +88,7 @@ public class Address implements Parcelable{
         dest.writeString(suite);
         dest.writeString(city);
         dest.writeString(zipcode);
+        dest.writeParcelable(geo, flags);
+
     }
 }

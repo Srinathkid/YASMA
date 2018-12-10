@@ -24,7 +24,6 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     ProgressDialog postsDialog, usersDialog;
-    PostsModel postsModel;
     List<PostsModel> postsModelArrayList;
     List<UsersDetails> usersDetailsList;
     PostsAdapter postsAdapter;

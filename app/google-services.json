@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "644702995571",
+    "firebase_url": "https://yasma-225110.firebaseio.com",
+    "project_id": "yasma-225110",
+    "storage_bucket": "yasma-225110.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:644702995571:android:4a84bc4c5d469530",
+        "android_client_info": {
+          "package_name": "com.android.yasma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "644702995571-umi6u5c5usk7api8q5bsl66v99eoo7oh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-mbmL3NbvIl5JH93X-pbZI7SLCa10VR8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
