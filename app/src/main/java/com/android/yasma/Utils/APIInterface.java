@@ -1,5 +1,6 @@
 package com.android.yasma.Utils;
 
+import com.android.yasma.Model.AlbumListsModel;
 import com.android.yasma.Model.Comments;
 import com.android.yasma.Model.PostsModel;
 import com.android.yasma.Model.UsersDetails;
@@ -25,4 +26,7 @@ public interface APIInterface {
 
     @GET("users")
     Call<List<UsersDetails>> getUsers();
+
+    @GET("albums")
+    Call<List<AlbumListsModel>> getAlbums();
 }

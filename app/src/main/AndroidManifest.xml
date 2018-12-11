@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,10 +20,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.PostsDetails" />
-        <activity android:name=".Activities.UserDetails"></activity>
+        <activity android:name=".Activities.UserDetails" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD_IDAQMqDIQEusZSzx2Xd6sMdqdQehfwA" />
+
+        <activity android:name=".Activities.AlbumLists"></activity>
     </application>
 
 </manifest>
