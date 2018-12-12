@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -27,7 +28,7 @@ public class AlbumLists extends AppCompatActivity {
     RecyclerView album_lists;
     List<AlbumListsModel> albumLists;
     ProgressDialog albumDialog;
-    AlbumListsAdapter albumListsAdapter;
+    AlbumListsAdapter albumListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class AlbumLists extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        albumLists = new ArrayList<>();
 
         setResources();
         getAlbums();
@@ -43,6 +45,10 @@ public class AlbumLists extends AppCompatActivity {
 
     private void setResources() {
         album_lists = (RecyclerView) findViewById(R.id.albums_recycler);
+        albumListAdapter = new AlbumListsAdapter(AlbumLists.this, albumLists);
+        album_lists.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,
+                false));
+        album_lists.setAdapter(albumListAdapter);
 
     }
 
@@ -57,9 +63,12 @@ public class AlbumLists extends AppCompatActivity {
                 albumLists = response.body();
 
                 System.out.println("Album Lists : " + albumLists.size());
-               /* albumListsAdapter = new PostsAdapter(AlbumLists.this, albumLists);
-                album_lists.setAdapter(albumListsAdapter);
-                albumListsAdapter.notifyDataSetChanged();*/
+
+//                if (albumLists.size() > 0) {
+                    albumListAdapter = new AlbumListsAdapter(AlbumLists.this, albumLists);
+                    album_lists.setAdapter(albumListAdapter);
+//                    albumListAdapter.notifyDataSetChanged();
+//                }
 
 
                 if (albumDialog.isShowing())
